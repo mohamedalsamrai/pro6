@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:pro6/modl.dart';
 
 void main() {
   runApp(const MyApp());
@@ -40,47 +41,23 @@ class MyApp extends StatelessWidget {
                 "Mohammed Al-Samrai",
                 style: GoogleFonts.pacifico(
                     color: Colors.white,
-                    fontSize: 27,
+                    fontSize: 25,
                     fontWeight: FontWeight.w700),
               ),
               const SizedBox(
                 height: 13,
               ),
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: Colors.white,
-                ),
-                child: const ListTile(
-                  leading: Icon(Icons.phone),
-                  title: Text(
-                    '07856121557',
-                    style: TextStyle(
-                        fontSize: 17,
-                        color: Colors.grey,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ),
+              theCard(
+                title: '07856121557',
+                icon: Icon(Icons.phone),
               ),
               const SizedBox(
                 height: 20,
               ),
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: Colors.white,
-                ),
-                child: const ListTile(
-                  leading: Icon(Icons.email),
-                  title: Text(
-                    'sffdvfc@gmail.com',
-                    style: TextStyle(
-                        fontSize: 17,
-                        color: Colors.grey,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ),
-              ),
+              theCard(
+                title: 'sffdvfc@gmail.com',
+                icon: Icon(Icons.email),
+              )
             ],
           ),
         ),

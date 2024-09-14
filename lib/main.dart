@@ -149,7 +149,7 @@ class _MyAppState extends State<MyApp> {
                       fontFamily: "Bangers"),
                 ),
               ),
-              Spacer()
+              const Spacer()
             ],
           )),
         ),

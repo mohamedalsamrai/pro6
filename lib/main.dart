@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:pro6/modl.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -19,19 +18,21 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
+    Size sizee = MediaQuery.of(context).size;
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: Colors.orange,
         appBar: AppBar(
           backgroundColor: Colors.orange,
-          title: Center(
+          title: const Center(
             child: Text(
               "Point Counter",
-              style: GoogleFonts.bangers(
+              style: TextStyle(
                   color: Colors.white,
                   fontSize: 50,
-                  fontWeight: FontWeight.w300),
+                  fontWeight: FontWeight.w300,
+                  fontFamily: "Bangers"),
             ),
           ),
         ),
@@ -42,9 +43,7 @@ class _MyAppState extends State<MyApp> {
               'images/p2.png',
               scale: 2.4,
             ),
-            const SizedBox(
-              height: 70,
-            ),
+            SizedBox(height: sizee.height * 0.075),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -52,35 +51,36 @@ class _MyAppState extends State<MyApp> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Text(
+                      const Text(
                         "Team A",
-                        style: GoogleFonts.bangers(
+                        style: TextStyle(
                             color: Colors.white,
                             fontSize: 44,
-                            fontWeight: FontWeight.w300),
+                            fontWeight: FontWeight.w300,
+                            fontFamily: "Bangers"),
                       ),
                       Text(
                         "$countA",
-                        style: GoogleFonts.bangers(
+                        style: const TextStyle(
                             color: Colors.white,
                             fontSize: 70,
-                            fontWeight: FontWeight.w300),
+                            fontWeight: FontWeight.w300,
+                            fontFamily: "Bangers"),
                       ),
-                      const SizedBox(
-                        height: 200,
-                      ),
+                      SizedBox(height: sizee.height * 0.23),
                       TextButton(
                         onPressed: () {
                           setState(() {
                             countA++;
                           });
                         },
-                        child: Text(
+                        child: const Text(
                           "Add 1 Point",
-                          style: GoogleFonts.bangers(
+                          style: TextStyle(
                               color: Colors.white,
                               fontSize: 25,
-                              fontWeight: FontWeight.w300),
+                              fontWeight: FontWeight.w300,
+                              fontFamily: "Bangers"),
                         ),
                       ),
                     ],
@@ -90,22 +90,24 @@ class _MyAppState extends State<MyApp> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Text(
+                      const Text(
                         "Team B",
-                        style: GoogleFonts.bangers(
+                        style: TextStyle(
                             color: Colors.white,
                             fontSize: 44,
-                            fontWeight: FontWeight.w300),
+                            fontWeight: FontWeight.w300,
+                            fontFamily: "Bangers"),
                       ),
                       Text(
                         "$countB",
-                        style: GoogleFonts.bangers(
+                        style: const TextStyle(
                             color: Colors.white,
                             fontSize: 70,
-                            fontWeight: FontWeight.w300),
+                            fontWeight: FontWeight.w300,
+                            fontFamily: "Bangers"),
                       ),
-                      const SizedBox(
-                        height: 200,
+                      SizedBox(
+                        height: sizee.height * 0.23,
                       ),
                       TextButton(
                         onPressed: () {
@@ -113,19 +115,39 @@ class _MyAppState extends State<MyApp> {
                             countB++;
                           });
                         },
-                        child: Text(
+                        child: const Text(
                           "Add 1 Point",
-                          style: GoogleFonts.bangers(
+                          style: TextStyle(
                               color: Colors.white,
                               fontSize: 25,
-                              fontWeight: FontWeight.w300),
+                              fontWeight: FontWeight.w300,
+                              fontFamily: "Bangers"),
                         ),
                       ),
                     ],
                   ),
                 )
               ],
-            )
+            ),
+            SizedBox(
+              height: sizee.height * 0.04,
+            ),
+            TextButton(
+              onPressed: () {
+                setState(() {
+                  countA = 0;
+                  countB = 0;
+                });
+              },
+              child: const Text(
+                "Reset",
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 25,
+                    fontWeight: FontWeight.w300,
+                    fontFamily: "Bangers"),
+              ),
+            ),
           ],
         )),
       ),

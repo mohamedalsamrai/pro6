@@ -6,63 +6,128 @@ void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  int countA = 0;
+  int countB = 0;
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: Padding(
-          padding: const EdgeInsets.all(15),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Center(
-                child: Container(
-                  padding: const EdgeInsets.all(4),
-                  decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      border: Border.all(color: Colors.white, width: 2)),
-                  child: ClipOval(
-                    child: Image.asset(
-                      'images/tharwat.png',
-                      width: 240,
-                      height: 240,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-              ),
-              const SizedBox(
-                height: 12,
-              ),
-              Text(
-                "Mohammed Al-Samrai",
-                style: GoogleFonts.pacifico(
-                    color: Colors.white,
-                    fontSize: 25,
-                    fontWeight: FontWeight.w700),
-              ),
-              const SizedBox(
-                height: 13,
-              ),
-              theCard(
-                title: '07856121557',
-                icon: Icon(Icons.phone),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              theCard(
-                title: 'sffdvfc@gmail.com',
-                icon: Icon(Icons.email),
-              )
-            ],
+        backgroundColor: Colors.orange,
+        appBar: AppBar(
+          backgroundColor: Colors.orange,
+          title: Center(
+            child: Text(
+              "Point Counter",
+              style: GoogleFonts.bangers(
+                  color: Colors.white,
+                  fontSize: 50,
+                  fontWeight: FontWeight.w300),
+            ),
           ),
         ),
-        backgroundColor: const Color(0xFF2B475E),
+        body: Center(
+            child: Column(
+          children: [
+            Image.asset(
+              'images/p2.png',
+              scale: 2.4,
+            ),
+            const SizedBox(
+              height: 70,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Team A",
+                        style: GoogleFonts.bangers(
+                            color: Colors.white,
+                            fontSize: 44,
+                            fontWeight: FontWeight.w300),
+                      ),
+                      Text(
+                        "$countA",
+                        style: GoogleFonts.bangers(
+                            color: Colors.white,
+                            fontSize: 70,
+                            fontWeight: FontWeight.w300),
+                      ),
+                      const SizedBox(
+                        height: 200,
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          setState(() {
+                            countA++;
+                          });
+                        },
+                        child: Text(
+                          "Add 1 Point",
+                          style: GoogleFonts.bangers(
+                              color: Colors.white,
+                              fontSize: 25,
+                              fontWeight: FontWeight.w300),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Team B",
+                        style: GoogleFonts.bangers(
+                            color: Colors.white,
+                            fontSize: 44,
+                            fontWeight: FontWeight.w300),
+                      ),
+                      Text(
+                        "$countB",
+                        style: GoogleFonts.bangers(
+                            color: Colors.white,
+                            fontSize: 70,
+                            fontWeight: FontWeight.w300),
+                      ),
+                      const SizedBox(
+                        height: 200,
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          setState(() {
+                            countB++;
+                          });
+                        },
+                        child: Text(
+                          "Add 1 Point",
+                          style: GoogleFonts.bangers(
+                              color: Colors.white,
+                              fontSize: 25,
+                              fontWeight: FontWeight.w300),
+                        ),
+                      ),
+                    ],
+                  ),
+                )
+              ],
+            )
+          ],
+        )),
       ),
     );
   }

@@ -19,7 +19,7 @@ SectionsModel three = SectionsModel(
 
 
 SectionsModel five = SectionsModel(
-    image: "https://online.hbs.edu/Style%20Library/api/resize.aspx?imgpath=/online/PublishingImages/blog/health-care-economics.jpg&w=1200&h=630",
+    image: "https://www.statnews.com/wp-content/uploads/2022/03/AdobeStock_246942922.jpeg",
     name: "Health");
 
 

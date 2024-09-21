@@ -1,23 +1,34 @@
+
 import 'package:flutter/material.dart';
-import 'package:toku/pages/HomPage.dart';
+import 'package:news/components/Title.dart';
+
+import 'package:news/pages/HomePage.dart';
 
 void main() {
-  runApp(const Touk());
+  runApp(const News());
 }
 
-class Touk extends StatefulWidget {
-  const Touk({super.key});
+class News extends StatefulWidget {
+  const News({super.key});
 
   @override
-  State<Touk> createState() => _ToukState();
+  State<News> createState() => _NewsState();
 }
 
-class _ToukState extends State<Touk> {
+class _NewsState extends State<News> {
+
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: HomPage(),
-    );
+    return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: Scaffold(
+            backgroundColor: Colors.white,
+            appBar: AppBar(
+              backgroundColor: Colors.white,
+              title: const TitleApp(nameOne: 'News', nameTwo: 'Cloud',),
+              centerTitle: true,
+            ),
+            body: const Hompage()));
   }
 }
+

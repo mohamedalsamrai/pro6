@@ -1,34 +1,22 @@
-
 import 'package:flutter/material.dart';
-import 'package:news/components/Title.dart';
-
+import 'package:google_fonts/google_fonts.dart';
+import 'package:news/components/Temp.dart';
 import 'package:news/pages/HomePage.dart';
+import 'package:news/pages/SerachPage.dart';
 
 void main() {
-  runApp(const News());
+  runApp(MyApp());
 }
 
-class News extends StatefulWidget {
-  const News({super.key});
-
-  @override
-  State<News> createState() => _NewsState();
-}
-
-class _NewsState extends State<News> {
+class MyApp extends StatelessWidget {
+  MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: Scaffold(
-            backgroundColor: Colors.white,
-            appBar: AppBar(
-              backgroundColor: Colors.white,
-              title: const TitleApp(nameOne: 'News', nameTwo: 'Cloud',),
-              centerTitle: true,
-            ),
-            body: const Hompage()));
+    Size ksize = MediaQuery.sizeOf(context);
+
+    return MaterialApp(debugShowCheckedModeBanner: false, home: Serachpage());
+
+    // backgroundColor: Color(0xff1F4260)));
   }
 }
-

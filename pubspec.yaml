@@ -84,6 +84,9 @@ flutter:
     - family: Lexend
       fonts:
         - asset: fonts/Lexend-VariableFont_wght.ttf
+    - family: Poppins
+      fonts:
+        - asset: fonts/Poppins-Italic.ttf
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package

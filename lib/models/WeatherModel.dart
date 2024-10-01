@@ -7,6 +7,27 @@ class WeatherModel extends StatelessWidget {
   final int temp;
 
   WeatherModel({required this.time, required this.icon, required this.temp});
+  factory WeatherModel.fromJson(json) {
+    String date = json["datetime"];
+    String Day = date.substring(5, 10);
+    String condition = json["conditions"];
+    double tempF = json["temp"];
+
+    // تحويل درجة الحرارة من فهرنهايت إلى مئوية
+    double tempC = ((tempF - 32) * 5 / 9);
+    int tempInCelsius = tempC.toInt();
+
+    // اختيار الأيقونة بناءً على حالة الطقس
+    IconData icon = condition == "Clear"
+        ? Icons.wb_sunny
+        : condition.contains("Rain")
+            ? Icons.water_drop_rounded
+            : condition.contains("Cloud")
+                ? Icons.wb_cloudy_outlined
+                : Icons.wb_sunny;
+
+    return WeatherModel(time: Day, icon: icon, temp: tempInCelsius);
+  }
 
   @override
   Widget build(BuildContext context) {

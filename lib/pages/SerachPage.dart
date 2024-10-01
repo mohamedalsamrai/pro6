@@ -36,7 +36,7 @@ class SerachpageState extends State<Serachpage> {
     Size ksize = MediaQuery.sizeOf(context);
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
+      appBar: AppBar(iconTheme:IconThemeData(color: Colors.white) ,
         backgroundColor: Colors.blue[400],
         shadowColor: Colors.black,
         elevation: 2,

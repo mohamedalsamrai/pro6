@@ -31,8 +31,7 @@ class GradientTextPainter extends CustomPainter {
             ).createShader(Rect.fromLTWH(0, 0, size.width, size.height)),
         ),
       ),
-     
-  );
+    );
 
     textPainter.layout();
 
@@ -47,7 +46,7 @@ class Temp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomPaint(
-      size: Size(180, 160),
+      size: Size(177, 160),
       painter: GradientTextPainter(temp: temp),
     );
   }

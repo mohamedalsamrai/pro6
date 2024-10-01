@@ -21,30 +21,8 @@ class Weatherservice {
 
       // اجتياز كل يوم لاستخراج البيانات المطلوبة
       for (var day in days) {
-        String date = day["datetime"];
-        String Day = date.substring(5, 10);
-        String condition = day["conditions"];
-        double tempF = day["temp"];
-
-        // تحويل درجة الحرارة من فهرنهايت إلى مئوية
-        double tempC = ((tempF - 32) * 5 / 9);
-        int tempInCelsius = tempC.toInt();
-
-        // اختيار الأيقونة بناءً على حالة الطقس
-        IconData icon = condition == "Clear"
-            ? Icons.wb_sunny
-            : condition.contains("Rain")
-                ? Icons.water_drop_rounded
-                : condition.contains("Cloud")
-                    ? Icons.wb_cloudy_outlined
-                    : Icons.wb_sunny;
-
         // إنشاء كائن من WeatherModel
-        WeatherModel weatherModel = WeatherModel(
-          time: Day, // هنا يمكنك استخدام التاريخ بدل الوقت
-          icon: icon,
-          temp: tempInCelsius,
-        );
+        WeatherModel weatherModel = WeatherModel.fromJson(day);
 
         weatherData.add(weatherModel);
       }

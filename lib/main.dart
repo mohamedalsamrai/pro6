@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:news/Services/WeatherService.dart';
+import 'package:news/Widgets/NoWeather.dart';
 import 'package:news/components/Temp.dart';
 import 'package:news/pages/HomePage.dart';
 import 'package:news/pages/SerachPage.dart';
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     Size ksize = MediaQuery.sizeOf(context);
 
-    return MaterialApp(debugShowCheckedModeBanner: false, home: Serachpage());
+    return MaterialApp(debugShowCheckedModeBanner: false, home: Noweather());
 
     // backgroundColor: Color(0xff1F4260)));
   }

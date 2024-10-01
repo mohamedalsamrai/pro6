@@ -22,7 +22,7 @@ class WeatherModel extends StatelessWidget {
                         ? Colors.blue[200]
                         : Colors.black),
         SizedBox(height: 5),
-        Text(time, style: TextStyle(fontSize: 12, color: Colors.grey)),
+        Text("$time", style: TextStyle(fontSize: 12, color: Colors.grey)),
         SizedBox(height: 5),
         Text("$temp°",
             style:

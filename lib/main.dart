@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:news/Services/WeatherService.dart';
 import 'package:news/components/Temp.dart';
 import 'package:news/pages/HomePage.dart';
 import 'package:news/pages/SerachPage.dart';
 
-void main() {
+void main() async {
+ 
   runApp(MyApp());
 }
 

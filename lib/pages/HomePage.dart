@@ -1,18 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:news/Services/WeatherService.dart';
+import 'package:news/components/RowWeather.dart';
 import 'package:news/components/Temp.dart';
 import 'package:news/models/WeatherModel.dart';
 import 'package:news/pages/SerachPage.dart';
 
+   
+
+
+
+
+
 class HomePage extends StatelessWidget {
-  const HomePage({
-    super.key,
-    required this.ksize, required this.name,
-  });
-
-  final Size ksize;
+   final Size ksize;
   final String name;
+  List<WeatherModel> dataw1 ;
 
+  HomePage({
+    super.key,
+    required this.ksize,
+    required this.name,
+    required this.dataw1,
+   
+  });
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,7 +55,8 @@ class HomePage extends StatelessWidget {
                         ),
                         Align(
                           alignment: Alignment.centerLeft,
-                          child: Text(name,
+                          child: Text(
+                            name,
                             style: TextStyle(
                                 fontFamily: "Poppins",
                                 fontSize: 25,
@@ -62,7 +74,7 @@ class HomePage extends StatelessWidget {
                         child: Row(
                           children: [
                             Temp(
-                              temp: "23",
+                              temp: "${dataw1[0].temp}",
                             ),
                             Text(
                               "°",
@@ -94,33 +106,16 @@ class HomePage extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('Weather Today',
+                    Text('Weather Week',
                         style: GoogleFonts.poppins(
                             fontSize: 20, fontWeight: FontWeight.w700)),
                     SizedBox(height: 20),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        WeatherModel(
-                            time: '05:00 AM', icon: Icons.wb_sunny, temp: 23),
-                        WeatherModel(
-                            time: '06:00 AM',
-                            icon: Icons.water_drop_rounded,
-                            temp: 16),
-                        WeatherModel(
-                            time: '07:00 AM',
-                            icon: Icons.wb_cloudy_outlined,
-                            temp: 19),
-                        WeatherModel(
-                            time: '08:00 AM',
-                            icon: Icons.severe_cold_outlined,
-                            temp: -8),
-                      ],
-                    ),
+                    RowWeather(dataw:dataw1,),
                   ],
                 ),
               ),
             ],
+        
           ),
         ]),
       ),

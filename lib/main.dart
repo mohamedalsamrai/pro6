@@ -12,7 +12,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size ksize = MediaQuery.sizeOf(context);
 
     return BlocProvider(
       create: (context) => GetWeatherCubit(),

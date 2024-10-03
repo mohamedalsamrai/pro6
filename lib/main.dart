@@ -23,7 +23,9 @@ class MyApp extends StatelessWidget {
       create: (context) => GetWeatherCubit(),
       child: MaterialApp(
           debugShowCheckedModeBanner: false,
-          home: HomePage(ksize: ksize, name: nameCity)),
+          home: HomePage(
+            ksize: ksize,
+          )),
     );
 
     // backgroundColor: Color(0xff1F4260)));

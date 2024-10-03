@@ -6,13 +6,14 @@ import 'package:news/pages/SerachPage.dart';
 
 class GetWeatherCubit extends Cubit<WeatherState> {
   GetWeatherCubit() : super(WeaherInitialState());
+  late List<WeatherModel> weatherModel;
+
   gweWeatherData({required String cityName}) async {
     try {
-      List<WeatherModel> weatherModel =
-          await Weatherservice().getTempAtDays(nameCity: cityName);
-      emit(WeathLoadedState());
+      weatherModel = await Weatherservice().getTempAtDays(nameCity: cityName);
+      emit(WeathLoadedState(weatherModel: weatherModel));
     } catch (e) {
-      emit(WeatherFailureState());
+      emit(WeatherFailureState(eroor: e.toString()));
     }
   }
 }

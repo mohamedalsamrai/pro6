@@ -13,15 +13,16 @@ import 'package:news/pages/SerachPage.dart';
 
 class HomePage extends StatelessWidget {
   final Size ksize;
-  final String name;
+ 
 
   HomePage({
     super.key,
     required this.ksize,
-    required this.name,
+   
   });
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
         backgroundColor: Color(0xff1F4260),
         body: BlocBuilder<GetWeatherCubit, WeatherState>(
@@ -29,7 +30,7 @@ class HomePage extends StatelessWidget {
             if (state is WeaherInitialState) {
               return Noweather();
             } else if (state is WeathLoadedState) {
-              return WeatherInfo(ksize: ksize, name: name);
+              return WeatherInfo(ksize: ksize, name: nameCity);
             } else {
               return Center(child: Text("Name City Not Find"));
             }

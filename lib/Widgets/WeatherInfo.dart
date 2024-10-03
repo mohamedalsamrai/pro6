@@ -1,25 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:news/Services/WeatherService.dart';
 import 'package:news/components/RowWeather.dart';
 import 'package:news/components/Temp.dart';
+import 'package:news/cubits/get_weather_cubit/get_weather_cubit.dart';
 import 'package:news/models/WeatherModel.dart';
 import 'package:news/pages/SerachPage.dart';
 
 class WeatherInfo extends StatelessWidget {
-  const WeatherInfo({
+  WeatherInfo({
     super.key,
     required this.ksize,
     required this.name,
-   
+  
   });
 
   final Size ksize;
   final String name;
- 
 
   @override
   Widget build(BuildContext context) {
-    
+   var weatherModel= BlocProvider.of<GetWeatherCubit>(context).weatherModel;
     return SafeArea(
       child: Stack(children: [
         Image.asset(
@@ -83,7 +85,7 @@ class WeatherInfo extends StatelessWidget {
                       child: Row(
                         children: [
                           Temp(
-                            temp: "${weatherModel![0].temp}",
+                            temp: "${weatherModel[0].temp}",
                           ),
                           Text(
                             "°",
@@ -119,8 +121,7 @@ class WeatherInfo extends StatelessWidget {
                       style: GoogleFonts.poppins(
                           fontSize: 20, fontWeight: FontWeight.w700)),
                   SizedBox(height: 20),
-                  RowWeather(
-                  ),
+                  RowWeather(weatherModel: weatherModel),
                 ],
               ),
             ),

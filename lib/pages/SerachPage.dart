@@ -16,7 +16,6 @@ class Serachpage extends StatefulWidget {
 class SerachpageState extends State<Serachpage> {
   @override
   Widget build(BuildContext context) {
-    Size ksize = MediaQuery.sizeOf(context);
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -44,8 +43,37 @@ class SerachpageState extends State<Serachpage> {
             TextField(
               onSubmitted: (value) async {
                 nameCity = value;
+
+                // إظهار علامة التحميل
+                showDialog(
+                  context: context,
+                  barrierDismissible:
+                      false, // لا يمكن إغلاقه قبل انتهاء التحميل
+                  builder: (BuildContext context) {
+                    return Dialog(
+                      child: Padding(
+                        padding: const EdgeInsets.all(20.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            CircularProgressIndicator(),
+                            SizedBox(width: 15),
+                            Text("Loading..."),
+                          ],
+                        ),
+                      ),
+                    );
+                  },
+                );
+
+                // تحميل البيانات
                 var getWeatherCubit = BlocProvider.of<GetWeatherCubit>(context);
-                getWeatherCubit.gweWeatherData(cityName: value);
+                await getWeatherCubit.gweWeatherData(cityName: value);
+
+                // إغلاق علامة التحميل
+                Navigator.pop(context); // إغلاق الـ Dialog
+
+                // الرجوع للصفحة السابقة
                 Navigator.pop(context);
               },
               cursorColor: Colors.blue,

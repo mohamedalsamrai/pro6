@@ -3,8 +3,8 @@ import 'package:news/models/WeatherModel.dart';
 import 'package:news/pages/SerachPage.dart';
 
 class RowWeather extends StatelessWidget {
-  RowWeather();
- 
+  RowWeather({required this.weatherModel});
+  final List<WeatherModel> weatherModel;
 
   @override
   Widget build(BuildContext context) {

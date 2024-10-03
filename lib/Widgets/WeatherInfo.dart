@@ -1,15 +1,14 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:news/Services/WeatherService.dart';
-import 'package:news/components/RowWeather.dart';
 import 'package:news/components/Temp.dart';
+import 'package:news/components/WeatherWeek.dart';
 import 'package:news/cubits/get_weather_cubit/get_weather_cubit.dart';
-import 'package:news/models/WeatherModel.dart';
 import 'package:news/pages/SerachPage.dart';
 
 class WeatherInfo extends StatelessWidget {
-  WeatherInfo({
+  const WeatherInfo({
     super.key,
     required this.ksize,
     required this.name,
@@ -42,19 +41,19 @@ class WeatherInfo extends StatelessWidget {
                     children: [
                       Row(
                         children: [
-                          Icon(
+                          const Icon(
                             Icons.location_pin,
                             color: Color.fromARGB(213, 239, 245, 252),
                             size: 21,
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 5,
                           ),
                           Align(
                             alignment: Alignment.centerLeft,
                             child: Text(
                               name,
-                              style: TextStyle(
+                              style: const TextStyle(
                                   fontFamily: "Poppins",
                                   fontSize: 25,
                                   fontWeight: FontWeight.w200,
@@ -68,9 +67,9 @@ class WeatherInfo extends StatelessWidget {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => Serachpage()));
+                                    builder: (context) => const Serachpage()));
                           },
-                          icon: Icon(
+                          icon: const Icon(
                             Icons.search,
                             color: Colors.white,
                             size: 27,
@@ -87,47 +86,23 @@ class WeatherInfo extends StatelessWidget {
                           Temp(
                             temp: "${weatherModel[0].temp}",
                           ),
-                          Text(
+                          const Text(
                             "°",
                             style: TextStyle(
                                 fontSize: 85,
                                 color:
-                                    const Color.fromARGB(175, 255, 255, 255)),
+                                    Color.fromARGB(175, 255, 255, 255)),
                           ),
                         ],
                       )),
                 ),
               ],
             ),
-            Container(
-              width: double.infinity,
-              height: 240,
-              decoration: BoxDecoration(
-                borderRadius:
-                    BorderRadiusDirectional.vertical(top: Radius.circular(40)),
-                color: Color(0xfffdfdfd),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black12,
-                    blurRadius: 10,
-                    offset: Offset(0, 5),
-                  ),
-                ],
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text('Weather Week',
-                      style: GoogleFonts.poppins(
-                          fontSize: 20, fontWeight: FontWeight.w700)),
-                  SizedBox(height: 20),
-                  RowWeather(weatherModel: weatherModel),
-                ],
-              ),
-            ),
+            const WeatherWeek(),
           ],
         ),
       ]),
     );
   }
 }
+

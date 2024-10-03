@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -6,18 +8,18 @@ class WeatherModel extends StatelessWidget {
   final IconData icon;
   final int temp;
 
-  WeatherModel({required this.time, required this.icon, required this.temp});
+  const WeatherModel({super.key, required this.time, required this.icon, required this.temp});
   factory WeatherModel.fromJson(json) {
     String date = json["datetime"];
+    // ignore: non_constant_identifier_names
     String Day = date.substring(5, 10);
     String condition = json["conditions"];
     double tempF = json["temp"];
 
-    // تحويل درجة الحرارة من فهرنهايت إلى مئوية
+   
     double tempC = ((tempF - 32) * 5 / 9);
     int tempInCelsius = tempC.toInt();
 
-    // اختيار الأيقونة بناءً على حالة الطقس
     IconData icon = condition == "Clear"
         ? Icons.wb_sunny
         : condition.contains("Rain")
@@ -42,9 +44,9 @@ class WeatherModel extends StatelessWidget {
                     : icon == Icons.severe_cold_outlined
                         ? Colors.blue[200]
                         : Colors.black),
-        SizedBox(height: 5),
-        Text("$time", style: TextStyle(fontSize: 12, color: Colors.grey)),
-        SizedBox(height: 5),
+        const SizedBox(height: 5),
+        Text(time, style: const TextStyle(fontSize: 12, color: Colors.grey)),
+        const SizedBox(height: 5),
         Text("$temp°",
             style:
                 GoogleFonts.poppins(fontSize: 30, fontWeight: FontWeight.w500)),

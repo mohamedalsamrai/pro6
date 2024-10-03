@@ -1,5 +1,6 @@
+// ignore_for_file: file_names
+
 import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
 import 'package:news/models/WeatherModel.dart';
 
 class Weatherservice {
@@ -14,13 +15,10 @@ class Weatherservice {
           "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/$nameCity?key=AS6LXASH6UDZNT5E3SSETNGZ2");
       Map<dynamic, dynamic> jsonData = response.data;
 
-      // الوصول إلى قائمة الأيام
       List<dynamic> days = jsonData["days"];
       List<WeatherModel> weatherData = [];
 
-      // اجتياز كل يوم لاستخراج البيانات المطلوبة
       for (var day in days) {
-        // إنشاء كائن من WeatherModel
         WeatherModel weatherModel = WeatherModel.fromJson(day);
 
         weatherData.add(weatherModel);
@@ -28,7 +26,6 @@ class Weatherservice {
 
       return weatherData;
     } catch (e) {
-      print("Error fetching weather data: $e");
       return [];
     }
   }

@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:news/pages/SerachPage.dart';
@@ -13,11 +15,11 @@ class Noweather extends StatelessWidget {
           backgroundColor: Colors.blue[400],
           shadowColor: Colors.black,
           elevation: 2,
-          title: Text("Qter Weather App",
+          title: Text("Qtara Weather App",
               style: GoogleFonts.poppins(
                   fontSize: 21,
                   fontWeight: FontWeight.w600,
-                  color: Color(0xffffffff)))),
+                  color: const Color(0xffffffff)))),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -32,7 +34,7 @@ class Noweather extends StatelessWidget {
               child: TextButton(
                   onPressed: () {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Serachpage()));
+                        MaterialPageRoute(builder: (context) => const Serachpage()));
                   },
                   child: Text(
                     "Search",

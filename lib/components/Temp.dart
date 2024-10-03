@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 
 class GradientTextPainter extends CustomPainter {
@@ -14,13 +16,13 @@ class GradientTextPainter extends CustomPainter {
     final textPainter = TextPainter(
       textDirection: TextDirection.ltr,
       text: TextSpan(
-        text: '${temp}',
+        text: temp,
         style: TextStyle(
           fontFamily: "Poppins",
           fontSize: 150,
           fontWeight: FontWeight.w200,
           foreground: Paint()
-            ..shader = LinearGradient(
+            ..shader = const LinearGradient(
               colors: [
                 Color(0xFFFFFFFF),
                 Color(0xB3FFFFFF),
@@ -35,10 +37,11 @@ class GradientTextPainter extends CustomPainter {
 
     textPainter.layout();
 
-    textPainter.paint(canvas, Offset(0, 0));
+    textPainter.paint(canvas, const Offset(0, 0));
   }
 }
 
+// ignore: must_be_immutable
 class Temp extends StatelessWidget {
   String temp;
   Temp({super.key, required this.temp});
@@ -46,7 +49,7 @@ class Temp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomPaint(
-      size: Size(177, 160),
+      size: const Size(177, 160),
       painter: GradientTextPainter(temp: temp),
     );
   }

@@ -1,13 +1,18 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:news/cubits/get_weather_cubit/get_weather_cubit.dart';
 import 'package:news/models/WeatherModel.dart';
-import 'package:news/pages/SerachPage.dart';
+
 
 class RowWeather extends StatelessWidget {
-  RowWeather({required this.weatherModel});
-  final List<WeatherModel> weatherModel;
+  const RowWeather({super.key});
+ 
 
   @override
   Widget build(BuildContext context) {
+    var weatherModel= BlocProvider.of<GetWeatherCubit>(context).weatherModel;
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [

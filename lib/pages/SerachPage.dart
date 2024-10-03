@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:news/Services/WeatherService.dart';
+import 'package:news/cubits/get_weather_cubit/get_weather_cubit.dart';
 import 'package:news/models/WeatherModel.dart';
 import 'package:news/pages/HomePage.dart';
 
@@ -12,31 +14,13 @@ class Serachpage extends StatefulWidget {
 }
 
 class SerachpageState extends State<Serachpage> {
-  List<WeatherModel> dataw = [];
-  bool isLoading = false;
-  String city = "";
-
-  @override
-  void initState() {
-    super.initState();
-  }
-
-  Future<void> getw(String cityName) async {
-    setState(() {
-      isLoading = true;
-    });
-    dataw = await Weatherservice(nameCity: cityName).getTempAtDays();
-    setState(() {
-      isLoading = false;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     Size ksize = MediaQuery.sizeOf(context);
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(iconTheme:IconThemeData(color: Colors.white) ,
+      appBar: AppBar(
+        iconTheme: IconThemeData(color: Colors.white),
         backgroundColor: Colors.blue[400],
         shadowColor: Colors.black,
         elevation: 2,
@@ -59,20 +43,10 @@ class SerachpageState extends State<Serachpage> {
             SizedBox(height: 150),
             TextField(
               onSubmitted: (value) async {
-                setState(() {
-                  city = value;
-                });
-                await getw(city);
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => HomePage(
-                      ksize: ksize,
-                      name: value,
-                      dataw1: dataw,
-                    ),
-                  ),
-                );
+                nameCity = value;
+                var getWeatherCubit = BlocProvider.of<GetWeatherCubit>(context);
+                getWeatherCubit.gweWeatherData(cityName: value);
+                Navigator.pop(context);
               },
               cursorColor: Colors.blue,
               decoration: InputDecoration(
@@ -97,12 +71,11 @@ class SerachpageState extends State<Serachpage> {
               ),
             ),
             SizedBox(height: 20),
-            isLoading
-                ? CircularProgressIndicator()
-                : Text("")
           ],
         ),
       ),
     );
   }
 }
+
+String nameCity = "";

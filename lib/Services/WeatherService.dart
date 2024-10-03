@@ -3,13 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:news/models/WeatherModel.dart';
 
 class Weatherservice {
-  final String nameCity;
   final dio = Dio();
 
-  Weatherservice({required this.nameCity});
+  Weatherservice();
 
   // دالة لجلب بيانات الطقس للأيام
-  Future<List<WeatherModel>> getTempAtDays() async {
+  Future<List<WeatherModel>> getTempAtDays({required String nameCity}) async {
     try {
       Response response = await dio.get(
           "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/$nameCity?key=AS6LXASH6UDZNT5E3SSETNGZ2");

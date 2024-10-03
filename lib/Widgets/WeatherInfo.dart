@@ -10,15 +10,16 @@ class WeatherInfo extends StatelessWidget {
     super.key,
     required this.ksize,
     required this.name,
-    required this.dataw1,
+   
   });
 
   final Size ksize;
   final String name;
-  final List<WeatherModel> dataw1;
+ 
 
   @override
   Widget build(BuildContext context) {
+    
     return SafeArea(
       child: Stack(children: [
         Image.asset(
@@ -82,7 +83,7 @@ class WeatherInfo extends StatelessWidget {
                       child: Row(
                         children: [
                           Temp(
-                            temp: "${dataw1[0].temp}",
+                            temp: "${weatherModel![0].temp}",
                           ),
                           Text(
                             "°",
@@ -119,7 +120,6 @@ class WeatherInfo extends StatelessWidget {
                           fontSize: 20, fontWeight: FontWeight.w700)),
                   SizedBox(height: 20),
                   RowWeather(
-                    dataw: dataw1,
                   ),
                 ],
               ),

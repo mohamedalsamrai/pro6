@@ -15,7 +15,7 @@ class Noweather extends StatelessWidget {
           elevation: 2,
           title: Text("Qter Weather App",
               style: GoogleFonts.poppins(
-                  fontSize: 23,
+                  fontSize: 21,
                   fontWeight: FontWeight.w600,
                   color: Color(0xffffffff)))),
       body: Center(

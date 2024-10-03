@@ -8,7 +8,7 @@ import 'package:news/cubits/get_weather_cubit/get_weather_cubit.dart';
 import 'package:news/pages/SerachPage.dart';
 
 class WeatherInfo extends StatelessWidget {
-  const WeatherInfo({
+   WeatherInfo({
     super.key,
     required this.ksize,
     required this.name,
@@ -98,7 +98,7 @@ class WeatherInfo extends StatelessWidget {
                 ),
               ],
             ),
-            const WeatherWeek(),
+            WeatherWeek(),
           ],
         ),
       ]),

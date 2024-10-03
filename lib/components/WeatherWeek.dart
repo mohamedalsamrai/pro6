@@ -36,7 +36,7 @@ class WeatherWeek extends StatelessWidget {
               style: GoogleFonts.poppins(
                   fontSize: 20, fontWeight: FontWeight.w700)),
           const SizedBox(height: 20),
-          const RowWeather(),
+        RowWeather(),
         ],
       ),
     );

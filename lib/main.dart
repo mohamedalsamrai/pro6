@@ -22,7 +22,5 @@ class MyApp extends StatelessWidget {
             ksize: ksize,
           )),
     );
-
-   
   }
 }

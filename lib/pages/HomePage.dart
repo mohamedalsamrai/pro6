@@ -9,12 +9,12 @@ import 'package:news/cubits/get_weather_cubit/get_weather_states.dart';
 import 'package:news/pages/SerachPage.dart';
 
 class HomePage extends StatelessWidget {
-  final Size ksize;
+ 
  
 
    const HomePage({
     super.key,
-    required this.ksize,
+
    
   });
   @override
@@ -27,7 +27,7 @@ class HomePage extends StatelessWidget {
             if (state is WeaherInitialState) {
               return const Noweather();
             } else if (state is WeathLoadedState) {
-              return WeatherInfo(ksize: ksize, name: nameCity);
+              return WeatherInfo( name: nameCity);
             } else {
               return const Center(child: Text("Name City Not Find"));
             }

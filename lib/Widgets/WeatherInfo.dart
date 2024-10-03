@@ -10,16 +10,17 @@ import 'package:news/pages/SerachPage.dart';
 class WeatherInfo extends StatelessWidget {
    WeatherInfo({
     super.key,
-    required this.ksize,
+   
     required this.name,
   
   });
 
-  final Size ksize;
+ 
   final String name;
 
   @override
   Widget build(BuildContext context) {
+    Size ksize = MediaQuery.sizeOf(context);
    var weatherModel= BlocProvider.of<GetWeatherCubit>(context).weatherModel;
     return SafeArea(
       child: Stack(children: [

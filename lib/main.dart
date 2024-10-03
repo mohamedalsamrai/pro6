@@ -16,10 +16,9 @@ class MyApp extends StatelessWidget {
 
     return BlocProvider(
       create: (context) => GetWeatherCubit(),
-      child: MaterialApp(
+      child: const MaterialApp(
           debugShowCheckedModeBanner: false,
           home: HomePage(
-            ksize: ksize,
           )),
     );
   }

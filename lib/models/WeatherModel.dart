@@ -24,7 +24,7 @@ class WeatherModel extends StatelessWidget {
         ? Icons.wb_sunny
         : condition.contains("Rain")
             ? Icons.water_drop_rounded
-            : condition.contains("Partially")&&condition.contains("Cloudy")
+            : condition.contains("Partially")||condition.contains("Cloudy")
                 ? Icons.wb_cloudy_outlined
                 : Icons.wb_sunny;
 
